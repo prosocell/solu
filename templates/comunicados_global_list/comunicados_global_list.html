@@ -1,0 +1,93 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}{% endblock %}
+
+{% block background %}{% endblock %}
+{% block headers %}{% endblock %}
+
+{% block content %}
+{% if request.user.turno == 'Ma' %}
+  {% include 'nav-bar-alumno.html' %} 
+{% elif request.user.turno == 'Ve' %} 
+  {% include 'nav-bar-alumno.html' %} 
+{% elif request.user.turno == 'Mi' %}
+  {% include 'nav-bar-docente.html' %}
+{% elif request.user.turno == 'Pa' %}
+  {% include 'nav-bar-extra.html' %}
+{% else %}
+  {% include 'nav-bar-ad.html' %}
+{% endif %} 
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        </table border="1">
+        </div>    
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas  fa-envelope fa-fw"></i>
+              Comunicados</div>
+              <div class="table-responsive">
+               <!-- Page Content -->
+    <div class="container">
+      {% if comunicado %}
+        
+      <!-- Page Heading -->
+      <h1 class="my-4">COBACH 01
+        <small>Lista de Comunicados</small>
+      </h1>
+      <hr>
+{% for c in comunicado %}
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+             {% if c.archivo %}
+                <a class="btn btn-primary" href="{{c.archivo.url}}">Ver el comunicado</a>
+                {% else %}
+                {% endif %}
+          
+        </div>
+        <div class="col-md-5">
+          <h3>{{c.title}}</h3>
+          <p>{{c.description}}</p> 
+        </div>
+      </div>
+      <hr>
+     {% endfor %}
+      <hr>
+
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+ 
+
+      {% else %}
+       <h1>No ay comunicados</h1>
+     
+      {% endif %}
+   
+            
+              </div>
+            </div>         
+          </div>
+{% endblock %}
+

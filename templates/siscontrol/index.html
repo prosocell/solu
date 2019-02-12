@@ -1,0 +1,44 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% block headers %}
+<!--<div class="container" style="width: 100px; height:100px;">
+        <div class="row">
+          <div class="col-lg-auto col-md-auto mx-auto">
+            <div class="site-heading" > -->
+                   
+            <!--  </div>
+          </div>
+        </div>
+      </div> -->
+{% endblock %}              
+
+{% block content %} 
+              {% if request.user.typeuser == 'Al' %}                
+                {% include 'nav-bar-alumno.html' %} 
+              {% elif request.user.typeuser == 'Do' %}
+                {% include 'nav-bar-docente.html' %}
+              {% elif request.user.typeuser == 'Di' %}
+                {% include 'nav-bar-director.html' %}
+              {% elif request.user.typeuser == 'Pa' %}
+                {% include 'nav-bar-extra.html' %}
+              {% else %}
+                {% include 'nav-bar-admin.html' %}
+              {% endif %} 
+
+<div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table border="1">
+        </div>    
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-table"></i>
+              Bienvenido </div>
+              <div class="table-responsive">
+            <center><img src="../static/img/cobach01.jpg" style="width: 500px; height: 300px;" id="myAreaChart" width="100%" height="30"></center>
+
+
+              </div>
+            </div>
+            {% endblock %}

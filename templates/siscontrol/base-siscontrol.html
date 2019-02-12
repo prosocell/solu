@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}Sistema de control</title>
+<!-- Bootstrap core CSS-->
+    <link href="{{STATIC_URL}}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="{{STATIC_URL}}vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="{{STATIC_URL}}vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{STATIC_URL}}css/sb-admin.css" rel="stylesheet">
+<script type="text/javascript">
+    function validar_clave() {
+        var caract_invalido = " ";
+        var caract_longitud = 40;
+        var cla1 = document.registro.new_password1.value;
+        var cla2 = document.registro.new_password2.value;
+        if (cla1 == '' || cla2 == '') {
+            alert('Debes introducir tu clave en los dos campos.');
+            document.registro
+            return false;
+        }   
+        if (document.registro.passwordreg.value.length < caract_longitud) {
+            alert('Tu clave debe constar de ' + caract_longitud + ' caracteres.');
+            document.registro
+            return false;
+        }
+        if (document.registro.passwordreg.value.indexOf(caract_invalido) > -1) {
+            alert("Las claves no pueden contener espacios");
+            document.registro
+            return false;
+        }
+        else {
+            if (cla1 != cla2) {
+                alert ("Las claves introducidas no son iguales");
+                document.registro
+                return false;
+            }
+            else {
+                alert('Contraeña correcta');
+                document.registro.submit;
+                return true;
+            }
+        }
+    }
+    </script>
+
+  </head>
+
+  <body id="page-top">
+  <header class="masthead" style="background-image: url('{% block  background %}{% endblock %}') " >
+     <div class="overlay"></div>
+     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+      <a class="navbar-brand mr-1" href="{% url 'control' %}">Sistema de control escolar</a>
+      <a class="navbar-brand mr-1" href=""></a>
+
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fas fa-bars"></i>
+      </button>
+ <!-- Navbar -->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown no-arrow">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="/">Visitar sitio COBACH 01</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'logout' %}" >Cerrar Sesion</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+      {% block headers %}{% endblock %}
+  </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      {% block content %}{% endblock %}
+        </div>
+
+<!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% if request.path != "/" %}<hr>{%  endif%}
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{STATIC_URL}}vendor/jquery/jquery.min.js"></script>
+    <script src="{{STATIC_URL}}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{STATIC_URL}}vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="{{STATIC_URL}}vendor/chart.js/Chart.min.js"></script>
+    <script src="{{STATIC_URL}}vendor/datatables/jquery.dataTables.js"></script>
+    <script src="{{STATIC_URL}}vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{STATIC_URL}}js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="{{STATIC_URL}}js/demo/datatables-demo.js"></script>
+    <script src="{{STATIC_URL}}js/demo/chart-area-demo.js"></script>
+
+    
+
+  </body>
+
+</html>

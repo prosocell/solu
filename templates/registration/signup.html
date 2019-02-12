@@ -1,0 +1,162 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+{% block title %}
+
+{% endblock %}
+{% block background %}{% endblock %}
+{% block headers %}
+{% endblock %} 
+{% block content %}<br><br><br><br><br>
+{% include 'nav-bar-admin.html' %}
+
+
+
+
+
+
+<div class="card-body">
+  <h1>Actualizar informacion</h1>
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <div class="card mb-3">
+          <form method="post" enctype="multipart/form-data">{% csrf_token %}
+          <!--{{ form.as_p }}-->
+          <center><h2>Datos obligatorios</h2></center>
+          <p>
+            <label>Nombre:</label>
+            <input type="text" name="first_name">
+          </p>
+          <p>
+            <label>Apellidos:</label>
+            <input type="text" name="last_name">
+          </p>
+          <p>
+            <label>Nombre de usuario:</label>
+            <input type="text" name="username" required="username">
+          </p>
+          <p>
+            <label>Contraseña:</label>
+            <input type="password" name="password1" required="password1">
+          </p>
+          <p>
+            <label>Contraseña(confirmar):</label>
+            <input type="password" name="password2" required="password2">
+          </p>
+          <p>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+          </p>
+          <p>
+            <label>Sexo:</label>
+            <select name="sexo">
+              <option value selected>--------</option>
+              <option value="M">Femenino</option>
+              <option value="H">Masculino</option>
+            </select>
+          </p>
+          <p>
+          <label>Turno:</label>
+             <select name="turno">
+               <option value selected>--------</option>
+               <option value="Ma">Matutino</option>
+               <option value="ve">Vespertino</option>
+               <option value="Mi">Mixto</option>
+             </select>
+        </p>
+        <p>
+          <label>Tipo de usuario:</label>
+             <select name="typeuser">
+               <option value selected>--------</option>
+               <option value="Di">Director</option>
+               <option value="Al">Alumno</option>
+               <option value="Do">Docente</option>
+               <option value="Pa">Paraescolar</option>
+             </select>
+        </p>
+
+        <center><h2>Datos para registrar alumno:</h2></center>
+           
+        <p>
+          <label>CRUP:</label>
+          <input type="text" name="curp">
+        </p>
+        <p>
+          <label>Matricula:</label>
+          <input type="text" name="matricula">
+        </p>
+        <p>
+          <label>grado:</label>
+          <input type="text" name="grado">
+        </p>
+        <p>
+          <label>grupo:</label>
+          <input type="text" name="grupo">
+        </p>
+            
+        <center><h2>Datos para registrar  docente</h2></center>  
+        <p>
+          <label>Nombre Plantel:</label>
+          <input type="text" name="nombreplan">
+        </p>
+        <p>
+          <label>Clave del estado:</label>
+          <input type="text" name="claveestado">
+        </p>
+        <p>
+          <label>Clave municipal:</label>
+          <input type="text" name="clavemuni">
+        </p>
+        <p>
+          <label>Clave centro:</label>
+          <input type="text" name="clacentro" >
+        </p>
+        <p>
+          <label>Orde:</label>
+          <input type="text" name="orden">
+        </p>
+        <p>
+          <label>Clave local:</label>
+          <input type="text" name="clavelocal">
+        </p>
+        <p>
+          <label>Clave del profesor:</label>
+          <input type="text" name="claveprof">
+        </p>
+        <p>
+         <label>Categoria:</label>
+           <select name="Categoria">
+              <option value selected>--------</option>
+              <option value="Di">Dibujo</option>
+              <option value="Ta">Taekwondo</option>
+              <option value="Ha">Hawaiano</option>
+              <option value="Da">Danza</option>
+              <option value="Ma">Marimba</option>
+              <option value="Vc">Bocalizacion y canto</option>
+              <option value="Bd">Banda de guerra</option>
+              <option value="To">Tochito</option>
+              <option value="Es">Escolta</option>
+              <option value="Ba">Basquetball</option>
+              <option value="Fu">Futbol</option>
+              <option value="Vo">voleibol</option>
+           </select>
+        </p>
+        <p>
+          <label>Telefono:</label>
+          <input type="text" name="telefono">
+        </p>
+        <p>
+          <label>Titulo:</label>
+          <input type="text" name="matricula">
+        </p>
+        <p>
+          <label>RFC:</label>
+          <input type="text" name="rfc">
+        </p>
+        <p>
+          <input type="submit" class="btn btn-primary btn-block" value="Registrar">
+        </p>  
+      </form>
+        </div>
+      </table border="1">        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}Subir comunicado{% endblock %}
+{% block background %}{% endblock %}
+{% block headers %}
+{% endblock %} 
+{% block content %}
+{% include 'nav-bar-dir.html' %}
+<br><br><br>
+
+
+
+<!-- Proyecto -->
+    <div class="row project" >
+        <div class="col-lg-7 col-md-8">
+        <form method="POST">{% csrf_token %}
+          {{ form.as_p }}
+          <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>  
+        </form>
+              
+        </div>    
+    </div>
+    
+{% endblock %}

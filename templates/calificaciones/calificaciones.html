@@ -1,0 +1,54 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}{% endblock %}
+
+{% block background %}}{% endblock %}
+
+{% block headers %}
+{% endblock %}              
+
+{% block content %}
+
+{% include 'nav-bar-alumno.html' %}
+{% if cal %}
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        </table border="1">
+
+        </div>    
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-table"></i>
+              Kardex Academico</div>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Semestre</th>
+                      <th>Asignatura</th>
+                      <th>Clave de materia</th>
+                      <th>Calificacion final</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    {% for n in cal %}
+                    <tr>
+                      <td>{{n.semestre}}</td>
+                      <td>{{n.materia}}</td>
+                      <td>{{n.clavemate}}</td>
+                      <td>{{n.califica}}</td>
+                    </tr>
+                   {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+
+
+          {% else %}
+              <h1>No tienes asginado ningun horario</h1>
+          {% endif %} 
+  </div>
+{% endblock %}

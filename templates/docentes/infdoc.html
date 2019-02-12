@@ -1,0 +1,60 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}Portada{% endblock %}
+
+{% block background %}{% endblock %}
+{% block headers %}
+{% endblock %}
+{% block content %}
+{% if request.user.typeuser == 'Al' %}
+  {% include 'nav-bar-alumno.html' %} 
+{% elif request.user.typeuser == 'Do' %}
+  {% include 'nav-bar-docente.html' %}
+{% elif request.user.typeuser == 'Di' %}
+  {% include 'nav-bar-director.html' %}
+{% elif request.user.typeuser == 'Pa' %}
+  {% include 'nav-bar-extra.html' %}
+{% else %}
+  {% include 'nav-bar-ad.html' %}
+{% endif %}
+
+{% if projects %}
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table border="1">
+        </div>    
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-table"></i>
+              Horario</div>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nombre: </th>
+                      <th>Apellidos: </th>
+                      <th>Telefono: </th>
+                      <th>Email: </th>
+                      <th>Sexo: </th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    
+                    <tr>
+                      <td>{{projects.first_name}}</td>
+                      <td>{{projects.last_name}}</td>
+                      <td>{{projects.telefono}}</td>
+                      <td>{{projects.email}}</td>
+                      <td>{{projects.sexo}}</td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            {% else %}
+              <h1>No tienes asginado ningun horario</h1>
+            {% endif %} 
+  </div>
+{% endblock %}

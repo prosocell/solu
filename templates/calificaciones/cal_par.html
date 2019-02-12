@@ -1,0 +1,65 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}{% endblock %}
+
+{% block background %}}{% endblock %}
+
+{% block headers %}    
+{% endblock %}              
+
+{% block content %}
+{% include 'nav-bar-alumno.html' %}
+{% if cal %}
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        </table border="1">
+
+        </div>    
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-table"></i>
+              Horario</div>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Materia</th>
+                      <th>Parcial 1</th>
+                      <th>Parcial 2</th>
+                      <th>Parcial 3</th>
+                      <th>Faltas Parcial 1</th>
+                      <th>Faltas Parcial 2</th>
+                      <th>Faltas Parcial 3</th>
+                      <th>Faltas Semestral</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    {% for n in cal %}
+                    <tr>
+                      <td>{{n.materia}}</td>
+                      <td>{{n.parcial_1}}</td>
+                      <td>{{n.parcial_2}}</td>
+                      <td>{{n.parcial_3}}</td>
+                      <td>{{n.inasispar1}}</td>
+                      <td>{{n.inasispar2}}</td>
+                      <td>{{n.inasispar3}}</td>
+                      <td>{{n.inasistenc}}</td>
+                    </tr>
+                   {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+
+
+          {% else %}
+              <h1>No tienes ninguna calificacion asignada</h1>
+          {% endif %} 
+  </div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,80 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block headers %}
+{% endblock %}
+
+{% block content %}
+{% if request.user.turno == 'Ma' %}
+  {% include 'nav-bar-alumno.html' %} 
+{% elif request.user.turno == 'Ve' %} 
+  {% include 'nav-bar-alumno.html' %} 
+{% elif request.user.turno == 'Mi' %}
+  {% include 'nav-bar-docente.html' %}
+{% elif request.user.turno == 'Di' %}
+  {% include 'nav-bar-dir.html' %}
+{% elif request.user.turno == 'Pa' %}
+  {% include 'nav-bar-extra.html' %}
+{% else %}
+  {% include 'nav-bar-ad.html' %}
+{% endif %} 
+
+{% if obj %}
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        </table border="1">
+
+        </div>    
+        <div class="card mb-3">
+            <div class="card-header"><i class="fas fa-table"></i>
+              Horario 
+
+            </div>
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Grado</th>
+                      <th>Grupo</th>
+                      <th>Capacitacion</th>
+                      <th>Asignatura</th>
+                      <th>Lunes</th>
+                      <th>Martes</th>
+                      <th>Miercoles</th>
+                      <th>Jueves</th>
+                      <th>Viernes</th>
+                      <th>Aula</th>
+                      <th>Docente</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+                    {% for n in obj %}
+                    <tr>
+                      <td>{{n.grado}}</td>
+                      <td>{{n.grupo}}</td>
+                      <td>{{n.capacitacion}}</td>
+                      <td>{{n.asignatura}}</td>
+                      <td>{{n.lunes}}</td>
+                      <td>{{n.martes}}</td>
+                      <td>{{n.miercoles}}</td>
+                      <td>{{n.jueves}}</td>
+                      <td>{{n.vierne}}</td>
+                      <td>{{n.aula}}</td>
+                      <td>{{n.docente}}</td>
+                    </tr>
+                   {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+
+
+          {% else %}
+              <h1>No tienes asginado ningun horario</h1>
+          {% endif %} 
+  </div>
+
+
+{% endblock %}

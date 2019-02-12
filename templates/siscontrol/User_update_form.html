@@ -1,0 +1,29 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}Subir comunicado{% endblock %}
+{% block background %}{% endblock %}
+{% block headers %}
+{% endblock %} 
+{% block content %}
+{% include 'nav-bar-admin.html' %}
+
+<style>.errorlist{color:red;}</style>
+
+
+<div class="card-body">
+	<h1>Actualizar informacion</h1>
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <div class="card mb-3">
+          <form action="" method="GET">{% csrf_token %}
+            {{ form.as_table }}
+            <p><input type="submit" class="btn btn-primary btn-block" value="Actualizar"></p>  
+          	<a href="{% url 'control' %}">regresar</a>
+          </form>
+        </div>
+      </table border="1">        
+    </div>
+</div>
+
+
+{% endblock %}

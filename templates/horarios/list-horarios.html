@@ -1,0 +1,48 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}Comunicados Docentes{% endblock %}
+
+{% block background %}{% load static %}{% static 'img/portfolio-bg.jpg' %}{% endblock %}
+
+{% block headers %}
+    
+{% endblock %}             
+{% block content %}
+
+{% if request.user.typeuser == 'Al' %}                
+                {% include 'nav-bar-alumno.html' %} 
+              {% elif request.user.typeuser == 'Do' %}
+                {% include 'nav-bar-docente.html' %}
+              {% elif request.user.typeuser == 'Di' %}
+                {% include 'nav-bar-director.html' %}
+              {% elif request.user.typeuser == 'Pa' %}
+                {% include 'nav-bar-extra.html' %}
+              {% else %}
+                {% include 'nav-bar-admin.html' %}
+              {% endif %} 
+<div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table border="1">
+        </div>    
+        <div class="card mb-3">
+              {% if 'delete' in request.GET %}
+                <h1 style=" color:green;">Horarios eliminados correctamente</h1>
+              {% endif %}
+
+               <a href="{% url 'delete_horario' %}" type="button" class="btn btn btn-block">Eliminar</a>
+               {% if horario %}
+                {% for n in horario %}
+                  <h3>{{n.grado}}{{n.grupo}}</h3>
+                {% endfor %}
+               {% else %}
+               <h1>No existen horarios</h1>
+               {% endif %}
+              </div>
+            </div>
+
+{% endblock %}
+
+  
+
+

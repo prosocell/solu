@@ -1,0 +1,36 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}Subir comunicado{% endblock %}
+{% block background %}{% endblock %}
+{% block headers %} 
+{% endblock %} 
+{% block content %}
+{% include 'nav-bar-extra.html' %}
+
+
+
+<div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table border="1">
+        </div>    
+        <div class="card mb-3">
+            <div class="row mt-3">
+      <div class="col-md-9 mx-auto mb-5">
+        {% if 'register' in request.GET %}
+        <p style=" color:green;">Usuario registrado correctamente, inicie sesion porfavor</p>
+        {% endif %}
+        <br><br><br>
+        <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+          {{ form.as_p }}
+          
+          <p><button type="submit" class="btn btn-primary btn-block" value="Subir">Subir</button></p>  
+        </form>
+        
+                </div>
+              </div>
+
+
+              </div>
+            </div>
+            {% endblock %}

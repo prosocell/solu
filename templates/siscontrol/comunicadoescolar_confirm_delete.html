@@ -1,0 +1,21 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+{% load static %}
+{% block title %}Borrar página{% endblock %}
+{% block content %}
+{% include 'nav-bar-extra.html' %}
+<main role="main">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto">
+        <div>
+            <form action="" method="post">{% csrf_token %}
+                <p>¿Estás seguro de que quieres borrar "{{ object }}"?</p>
+                <input type="submit" value="Sí, eliminar comunicado" />
+                <a href="{% url 'admin_extra' %}">Regresar a la lista</a>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

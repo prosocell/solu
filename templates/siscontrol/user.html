@@ -1,0 +1,72 @@
+{% extends 'siscontrol/base-siscontrol.html' %}
+
+{% block title %}{% endblock %}
+
+{% block background %}{% endblock %}
+
+{% block headers %}          
+{% endblock %}              
+{% block content %}
+{% include 'nav-bar-admin.html' %} 
+
+
+
+             
+
+<div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table border="1">
+        </div>    
+        <div class="card mb-3">
+          {% if usuarios %}
+{% for c in usuarios %}
+<!-- Proyecto -->
+    <div class="row project" >
+        <div class="col-lg-7 col-md-8">
+           
+                <table class="table table-bordered" >
+    <thead>
+        <tr>
+          <th>Nombre de usuario: </th> 
+          <th>Nombre:</th> 
+          <th>Tipo de usuario</th> 
+          <th>Elminar</th>      
+          <th>Editar</th>
+</tr>
+   
+</th>
+</thead>
+<tbody>
+  <tr>
+    <td>{{c.username}}</td>
+    <td>{{c.first_name}} {{c.last_name}}</td>
+    {% if c.typeuser == 'Al' %}
+    <td>Alumno</td>
+    {% elif c.typeuser == 'Do' %}
+    <td>Docente</td>
+    {% elif c.typeuser == 'Di' %}
+    <td>Director</td>
+
+    {% else %}
+    <td>Para escolar</td>
+    {% endif %}
+    <td><a href="/siscontrol/delete_user/{{c.id}}" %}">Eliminar</a></td>
+    <td><a href="/siscontrol/edit_user/{{c.id}}">Editar</a></td>
+  </tr>
+  </tbody>
+</table>
+
+        </div>    
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1>No ay usuarios</h1>
+    {% endif %}
+
+
+
+              </div>
+            </div>
+{% endblock %}
+              
