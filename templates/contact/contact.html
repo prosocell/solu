@@ -22,27 +22,51 @@
 {% endblock %}              
 
 {% block content %}
+<form action="" enctype="multipart/form-data" method="POST" role="form">
+    <div class="col-xs-6 col-sm-6 ">
+                <label>Primer Nombre* </label>
+                <div class="input-group">
+                    <input class="form-control" id="" maxlength="15" minlength="3" name="first" placeholder="Escribe tu nombre" type="text">
+                    </input>
+                </div>
+            </div>
 
+    <div class="col-xs-6 col-sm-6 ">
+                <label>segundo Nombre* </label>
+                <div class="input-group">
+                    <input class="form-control" id="" maxlength="15" minlength="3" name="last" placeholder="Escribe el segundo nombre" type="text">
+                    </input>
+                </div>
+            </div>
 
-<form accept-charset="ISO-8859-1" class="oneWebCntForm" name="contact form">
-        <div class="contact-form-field-container" dataformelement="Teléfono" data-index="0"><label>Teléfono *</label><input id="B836FE80-013F-425E-80BA-731EAA540EAC" type="tel" name="Teléfono">
+    <div class="col-xs-6 col-sm-6 ">
+                <label>Apellido* </label>
+                <div class="input-group">
+                    <input class="form-control" id="" maxlength="15" minlength="3" name="apellidos" placeholder="Escribe tu Apellido" type="text">
+                    </input>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 ">
+                <label>
+                    Numero Telefonico *
+                </label>
+                <div class="input-group">
+                    <input class="form-control" id="" maxlength="10" minlength="3" name="telefono"  type="text">
+                    </input>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 ">
+                <label>Asunto *</label>
+                <div class="input-group" >
+                    <textarea class="form-control" name="Asunto" rows="10" cols="30" type="text"></textarea>
         </div>
-        <span class="error">&nbsp;</span>
-        <div class="contact-form-field-container" dataformelement="Asunto" data-index="1"><label>Asunto *</label><input id="034515FF-3A26-46FE-BD80-5E0CBA46B65A" type="text" name="Asunto">
+    </div>
+       
+     
+        <div class="submit-btn-container">
+            <input class="contact-form-submit-btn" type="submit" value="Enviar" style="background-clip: padding-box">
         </div>
-        <span class="error">&nbsp;</span>
-        <div class="contact-form-field-container" dataformelement="Nombre" data-index="2"><label>Nombre *</label><input id="7EDD0079-E075-44B1-9FFA-B06413B13D2B" type="text" name="Nombre">
-        </div>
-        <span class="error">&nbsp;</span>
-        <div class="contact-form-field-container" dataformelement="Correo Electrónico" data-index="3"><label>Correo Electrónico *</label><input id="69C80640-C90A-40E9-8DAE-29ED290C2388" type="email" name="Correo Electrónico">
-        </div>
-        <span class="error">&nbsp;</span>
-        <div class="contact-form-field-container" dataformelement="Mensaje" data-index="4"><label>Mensaje *</label><textarea id="4CCC681E-1DA1-4417-91EE-9DE7662B11D4" type="text" name="Mensaje"></textarea>
-        </div>
-        <span class="error">&nbsp;</span>
-        <div class="contact-form-submit-btn-container"><input class="contact-form-submit-btn button1" type="submit" value="Enviar" style="background-clip: padding-box">
-        </div>
-        <div id="contactFormResponseContainer" class="contactFormResponseStatus"></div>
+      
     </form>
 {% endblock %}
 
